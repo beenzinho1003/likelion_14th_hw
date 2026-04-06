@@ -1,0 +1,51 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-container">
+        <img src="{% static 'images/cow.jpg' %}" alt="아기사자" width="100px">
+        <p class="tag">LikeLion_14th_session</p>
+        <h1 class="title">멋쟁이사자처럼 14기 2주차 세션 정리</h1>
+        <h6 class="welcome">세션에서 배운 것들 핵심정리!</h6>
+
+        <div class="section">
+            <div class="section-title">🦁 HTML / VIEW / URL  🦁</div>
+            <ul>
+                <li>유저에게 제공할 HTML파일을 한곳에 모아서 관리!</li>
+                <li>view.py를 작성하여 특정 url이 작성한 페이지를 보여지게 해야 함! </li>
+                <li>urls.py에서 경로가 비어있는 URL은 접속 시 처음보는 페이지의 URL임! </li>
+                <li>html파일에서 href를 % url 'name' % 꼴로 만들어주면 해당 페이지로 이동할 수 있음!</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 Template -  변수 사용 / 반복문 🦁</div>
+            <ul>
+                
+                <li>변수 , URL, 반복문, 조건문, 필터의 기능을 제공함! </li>
+                <li>변수 사용 : views.py 데이터를 받아서 html에서 사용이 가능함! </li>
+                <li>반복문이나 조건문 또한 사용이 가능함! </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 중복되는 부분 정리 🦁</div>
+            <ul>
+                
+                <li>base.html 등을 만들어서 겹치는 부분을 정리할 수 있음! </li>
+                <li>공유하는 부분을 제외하고 Block 태그로 감싸면 됨! </li>
+                <li>navbar의 경우에도 따로 navbar.html을 만들어서 코드의 중복을 방지! </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🦁 정적 파일 분리  🦁</div>
+            <ul>
+                
+                <li>project/static 폴더에 css, images 폴더를 생성!</li>
+                <li>각 폴더 내에서 css파일 작성, 이미지 업로드! </li>
+            </ul>
+        </div>
+</div>
+{% endblock %}
+
+
