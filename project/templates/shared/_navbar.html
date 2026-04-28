@@ -1,6 +1,6 @@
 <nav class="navbar-container">
-    <!-- mainpage 링크 연결 -->
-    <a class="navbar-link" href="{% url 'mainpage' %}">2주차 세션 정리</a>
-    <!-- secondpage 링크 연결 -->
-    <a class="navbar-link" href="{% url 'secondpage' %}">자기소개</a>
+    <a class="navbar-link" href="{% url 'main:mainpage' %}">2주차 세션 정리</a>
+    <a class="navbar-link" href="{% url 'main:secondpage' %}">자기소개</a>
+    <a class="navbar-link" href="{% url 'main:postpage' %}">list</a>
+    <a class="navbar-link" href="{% url 'main:new_post' %}">new_post</a>
 </nav>
