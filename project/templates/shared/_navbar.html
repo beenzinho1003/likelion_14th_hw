@@ -3,4 +3,13 @@
     <a class="navbar-link" href="{% url 'main:secondpage' %}">자기소개</a>
     <a class="navbar-link" href="{% url 'main:postpage' %}">list</a>
     <a class="navbar-link" href="{% url 'main:new_post' %}">new_post</a>
+
+    {% if user.is_authenticated %}
+        <span class="navbar-link">{{ user.username }}님 안녕하세요!</span>
+        <a class="navbar-link" href="{% url 'accounts:logout' %}">로그아웃</a>
+        <a class="navbar-link" href="{% url 'users:mypage' request.user.id %}">마이페이지</a> 
+    {% else %}
+        <a class="navbar-link" href="{% url 'accounts:login' %}">로그인</a>
+        <a class="navbar-link" href="{% url 'accounts:signup' %}">회원가입</a>
+    {% endif %}
 </nav>
