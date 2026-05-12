@@ -24,6 +24,7 @@
             <div class="card-footer">
                 <div class="divider"></div>
                 <span>{{ post.writer.profile.nickname }}</span>
+                <a href="{% url 'main:detail' post.id %}">자세히 보기</a>
             </div>
         </div>
     {% endfor %}
