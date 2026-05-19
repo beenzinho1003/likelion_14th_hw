@@ -158,3 +158,33 @@ def delete_comment(request, comment_id):
     comment.delete()
 
     return redirect('main:detail', post_id)
+
+def likes(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.user in post.like.all():
+        post.like.remove(request.user)
+        post.like_count -= 1
+        post.save()
+    else:
+        post.like.add(request.user)
+        post.like_count += 1
+        post.save()
+    return redirect('main:detail', post.id)
+
+def comment_like(request, comment_id):
+    if not request.user.is_authenticated:
+        return redirect('accounts:login')
+
+    comment = get_object_or_404(Comment, id=comment_id)
+
+    if request.user in comment.like.all():
+        comment.like.remove(request.user)
+        comment.like_count -= 1
+        comment.save()
+    else:
+        comment.like.add(request.user)
+        comment.like_count += 1
+        comment.save()
+
+    return redirect('main:detail', comment.post.id)

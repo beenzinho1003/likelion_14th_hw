@@ -37,14 +37,13 @@ def signup(request):
                 password=request.POST['password'],
             )
 
-            profile = Profile(
-                user=newuser,
-                nickname=request.POST['nickname'],
-                major=request.POST['major'],
-                hobby=request.POST['hobby'],
-                profile_image=request.FILES.get('profile_image'),
-            )
+            profile = newuser.profile
+            profile.nickname = request.POST['nickname']
+            profile.major = request.POST['major']
+            profile.hobby = request.POST['hobby']
+            profile.profile_image = request.FILES.get('profile_image')
             profile.save()
+
 
             auth.login(request, newuser)
             return redirect('main:postpage')
